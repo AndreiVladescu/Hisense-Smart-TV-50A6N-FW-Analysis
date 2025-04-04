@@ -2,7 +2,7 @@
 <link  rel="shortcut icon"  type="image/x-icon"  href="icon.ico">
 <figure>  <img
 src="./images/banner.jpeg"
-alt="Exploiting the router"
+alt="Figuring out the filesystem"
 >  </figure>
 
   
@@ -34,11 +34,11 @@ The CPU sits behind the black heatsink, and if that doesn't give it away, maybe 
 
 <img src="./images/closeup_mainboard_computer.jpeg" width="40%">
 
-| Component  | Name                           | Image                        | Datasheet                                                                                |
-| ---------- | ------------------------------ | ---------------------------- | ---------------------------------------------------------------------------------------- |
-| CPU        | MStar MSD6886NQGAT-8-00GH      | ![CPU](./images/cpu.png)     | not available                                                                            |
-| RAM        | Samsung 512MB DDR3L K4B4G1646E | ![RAM](./images/ram.png)     | https://www.alldatasheet.com/datasheet-pdf/download/1131836/SAMSUNG/K4B4G1646E.html      |
-| EMMC Flash | Toshiba 4GB THGBMDG5D1LBAIL    | ![Flash](./images/flash.png) | https://www.alldatasheet.com/datasheet-pdf/download/1179334/TOSHIBA/THGBMDG5D1LBAIT.html |
+| Component  | Name                           | Image                          | Datasheet                                                                                                |
+| ---------- | ------------------------------ | ------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| CPU        | MStar MSD6886NQGAT-8-00GH      | <img src="./images/cpu.png">   | not available                                                                                            |
+| RAM        | Samsung 512MB DDR3L K4B4G1646E | <img src="./images/ram.png">   | [alldatasheet](https://www.alldatasheet.com/datasheet-pdf/download/1131836/SAMSUNG/K4B4G1646E.html)      |
+| EMMC Flash | Toshiba 4GB THGBMDG5D1LBAIL    | <img src="./images/flash.png"> | [alldatasheet](https://www.alldatasheet.com/datasheet-pdf/download/1179334/TOSHIBA/THGBMDG5D1LBAIT.html) |
 
 The other ICs are not interesting, they are audio amplifiers, inverter ICs, etc.
 
@@ -53,10 +53,10 @@ The second board's name is `CV500U2-T01-CB-1` and is the board that connects to 
   <img src="./images/displayboard_backside.png" width="50%">
 </div>
 
-| Component | Name                                 | Image                                                   | Datasheet                                                                                                  |
-| --------- | ------------------------------------ | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| CPU       | CHOT CCU1221A11N                     | <img src="./images/displayboard_cpu.png" width="100">   | Not available                                                                                              |
-| SPI Flash | Boya Microelectronics 2MB 25D16ASSIG | <img src="./images/displayboard_flash.png" width="100"> | [Datasheet](https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_BOYAMICRO-BY25D16ASSIG-T_C382740.pdf) |
+| Component | Name                                 | Image                                                   | Datasheet                                                                                             |
+| --------- | ------------------------------------ | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| CPU       | CHOT CCU1221A11N                     | <img src="./images/displayboard_cpu.png" width="100">   | Not available                                                                                         |
+| SPI Flash | Boya Microelectronics 2MB 25D16ASSIG | <img src="./images/displayboard_flash.png" width="100"> | [lcsc](https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_BOYAMICRO-BY25D16ASSIG-T_C382740.pdf) |
 
 
 ## WiFi Board
