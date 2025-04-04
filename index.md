@@ -53,10 +53,11 @@ The second board's name is `CV500U2-T01-CB-1` and is the board that connects to 
   <img src="./images/displayboard_backside.png" width="50%">
 </div>
 
-| Component | Name                                 | Image                                   | Datasheet                                                                                     |
-| --------- | ------------------------------------ | --------------------------------------- | --------------------------------------------------------------------------------------------- |
-| CPU       | CHOT CCU1221A11N                     | ![CPU](./images/displayboard_cpu.png)   | not available                                                                                 |
-| SPI Flash | Boya Microelectronics 2MB 25D16ASSIG | ![CPU](./images/displayboard_flash.png) | https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_BOYAMICRO-BY25D16ASSIG-T_C382740.pdf |
+| Component | Name                                 | Image                                                   | Datasheet                                                                                                  |
+| --------- | ------------------------------------ | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| CPU       | CHOT CCU1221A11N                     | <img src="./images/displayboard_cpu.png" width="100">   | Not available                                                                                              |
+| SPI Flash | Boya Microelectronics 2MB 25D16ASSIG | <img src="./images/displayboard_flash.png" width="100"> | [Datasheet](https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_BOYAMICRO-BY25D16ASSIG-T_C382740.pdf) |
+
 
 ## WiFi Board
 
