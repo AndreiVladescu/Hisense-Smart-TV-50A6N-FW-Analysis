@@ -113,7 +113,7 @@ I unpacked the firmware using `binwalkv3`, since the firmware is big, and origin
 
 ### Manual findings
 
-I entered manually every partition on the board, and opened every file of this Linux distribution (didn't find any Android reference), and compiled a [list](https://andreivladescu.github.io/Hisense-Smart-TV-50A6N-FW-Analysis/interesting files) with interesting files.
+I entered manually every partition on the board, and opened every file of this Linux distribution (didn't find any Android reference), and compiled a [list of interesting files](https://andreivladescu.github.io/Hisense-Smart-TV-50A6N-FW-Analysis/interesting files).
 
 As a shorter list of findings, these were found:
 
@@ -128,3 +128,5 @@ As a shorter list of findings, these were found:
 For the users, I tried brute-forcing them using the [breachcompilation wordlist](https://gist.github.com/vay3t/1b113f765f6acdc442c231b43e74fdb6), but it didn't yield any result.
 
 ### Emba findings
+
+The automated emba scan finished after 20 long hours, the logs can be downloaded from [this](https://mega.nz/file/lehgDCJa#BVzlneEs0-DIDvV1rxsMr-0t_Ks-QSSbfFksRK2gogc) Mega link.
