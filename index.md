@@ -101,7 +101,7 @@ Most of the memory is empty, and the contents that are not empty are semi-readab
 
 Searching for "demura" on the internet yields some info about the [Demura display calibration technology](https://patents.google.com/patent/CN114495815A/en), which improves the quality of the display - in other words, boring for us. It must contain some factory calibration data.
 
-## Menu board flash
+## Main board flash
 
 The other memory was harded to acquire, since it's in a BGA153 format. This requires chip-off extraction, with a hot air gun. I didn't bother to reflow it to the PCB again.
 If you want to analyze it further, you can try at [this](https://mega.nz/file/V9oEkawL#DQxrA4hBd0lGLq-SNMdKyOvNabxtXYXepjSVROQVD8o) Mega upload link, since it's almost 1.5GB in size.
@@ -113,7 +113,7 @@ I unpacked the firmware using `binwalkv3`, since the firmware is big, and origin
 
 ### Manual findings
 
-I entered manually every partition on the board, and opened every file of this Linux distribution (didn't find any Android reference), and compiled a [list of interesting files](https://andreivladescu.github.io/Hisense-Smart-TV-50A6N-FW-Analysis/interesting files).
+I entered manually every partition on the flash storage, inspected the files of this Linux distribution (was expecting to find an Android OS), then compiled a [list of interesting files](https://andreivladescu.github.io/Hisense-Smart-TV-50A6N-FW-Analysis/interesting files).
 
 As a shorter list of findings, these were found:
 
@@ -124,9 +124,27 @@ As a shorter list of findings, these were found:
 - Network configuration files
 - Local TV channels database
 - Users and their hashed passwords
+- Bash scripts
 
 For the users, I tried brute-forcing them using the [breachcompilation wordlist](https://gist.github.com/vay3t/1b113f765f6acdc442c231b43e74fdb6), but it didn't yield any result.
 
-### Emba findings
+### EMBA findings
 
-The automated emba scan finished after 20 long hours, the logs can be downloaded from [this](https://mega.nz/file/lehgDCJa#BVzlneEs0-DIDvV1rxsMr-0t_Ks-QSSbfFksRK2gogc) Mega link.
+The automated EMBA scan finished after 20 long hours, the logs can be downloaded from [this](https://mega.nz/file/lehgDCJa#BVzlneEs0-DIDvV1rxsMr-0t_Ks-QSSbfFksRK2gogc) Mega link.
+
+After the report was generated, I already had a general view of the firmware, so I jumped directly to what vulnerabilities it discovered on the system, in the F20 vulnerability aggregator module. 
+
+<img src="./images/CVEs.png" width="70%">
+
+While it contained lots of CVEs, most of them didn't have an exploit available that was also marked as remotely exploitable. Two of them, however, were exploitable:
+
+- [CVE-2020-12351](https://nvd.nist.gov/vuln/detail/CVE-2020-12351)
+- [CVE-2017-18202](https://nvd.nist.gov/vuln/detail/CVE-2017-18202)
+
+CVE-2020-12351 is also called BleedingTooth, and it's based on an improper input validation in the BluZ Bluetooth protocol stack. BleedingTooth can be used by an attacker to get remote code execution by sending a specially crafted L2CAP packet to the target device. A demo has been uploaded on YouTube by TheFloW:
+
+<iframe width="640" height="420" src="https://www.youtube.com/embed/qPYrLRausSw" title="BleedingTooth: Linux Bluetooth Zero-Click Remote Code Execution" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+The other, CVE-2017-18202, is based on the `__oom_reap_task_mm` in `mm/oom_kill.c` in the Linux kernel. Before version 4.14.4, it mishandles gather operations, which allows attackers to cause a DoS by TLB entry leak or use-after-free. It can also leverage a `copy_to_user` call within a certain time window, which is used to copy data from the kernel's memory space to the memory space of a user-level process - meaning it can leak kernel data.
+
+While I wanted to try the BleedingTooth exploit, the board wasn't in a working condition, so I couldn't test it.
